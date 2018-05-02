@@ -1,9 +1,9 @@
 {
-  "name": "react-breadcrumbs",
-  "version": "2.2.0",
-  "description": "Automatic breadcrumbs for react-router",
-  "author": "Sven Anders Robbestad <anders@robbestad.com>",
-  "homepage": "https://github.com/svenanders/react-breadcrumbs",
+  "name": "@pydash/react-breadcrumbs",
+  "version": "2.2.1-rc2",
+  "description": "Automatic breadcrumbs for react-router. Forked version with slight improvements",
+  "author": "Qqwy <qqwy@gmx.com>",
+  "homepage": "https://github.com/Qqwy/react-breadcrumbs",
   "license": "ISC",
   "main": "dist/react-breadcrumbs.min.js",
   "scripts": {
@@ -20,10 +20,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/svenanders/react-breadcrumbs.git"
+    "url": "https://github.com/Qqwy/react-breadcrumbs.git"
   },
   "bugs": {
-    "url": "https://github.com/svenanders/react-breadcrumbs/issues"
+    "url": "https://github.com/Qqwy/react-breadcrumbs/issues"
   },
   "keywords": [
     "react-component",
@@ -32,9 +32,9 @@
     "trail"
   ],
   "peerDependencies": {
-    "prop-types": "^15.5.7",
     "react": "^15.0.0 || ^16.0.0",
-    "react-router-dom": "^4.0.0"
+    "react-router-dom": "^4.0.0",
+    "prop-types": "^15.5.7"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
