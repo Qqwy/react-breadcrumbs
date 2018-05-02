@@ -17,11 +17,11 @@ export default class Breadcrumbs extends React.Component {
         className: PropTypes.string,
         hidden: PropTypes.bool,
         separator: PropTypes.node,
-        wrapper: PropTypes.oneOfType([ 
-            PropTypes.func, 
+        wrapper: PropTypes.oneOfType([
+            PropTypes.func,
             PropTypes.instanceOf(
                 React.Component
-            ) 
+            )
         ]),
         children: PropTypes.oneOfType([
             PropTypes.node,
@@ -53,22 +53,23 @@ export default class Breadcrumbs extends React.Component {
             <div className={ className }>
                 <Wrapper className={ `${block} ${hiddenMod}` }>
                     <div className={ `${block}__inner` }>
-                        { 
+                        {
                             crumbs.sort((a, b) => {
                                 return a.pathname.length - b.pathname.length
                             }).map((crumb, i) => (
+                                const crumb_wrapper = (crumb.isLink === false ? span : NavLink);
                                 <span key={ crumb.id } className={ `${block}__section` }>
-                                    <NavLink
+                                    <crumb_wrapper
                                         exact
                                         className={ `${block}__crumb` }
                                         activeClassName={ `${block}__crumb--active` }
-                                        to={{ 
+                                        to={{
                                             pathname: crumb.pathname,
                                             search: crumb.search,
                                             state: crumb.state
                                         }}>
                                         { crumb.title }
-                                    </NavLink>
+                                    </crumb_wrapper>
 
                                     { i < crumbs.length - 1 ? (
                                         <span className={ `${block}__separator` }>

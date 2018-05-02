@@ -10,9 +10,14 @@ import { Dispatch } from './store'
 // Create and export the component
 export default class Breadcrumb extends React.Component {
 	static propTypes = {
-		data: PropTypes.object.isRequired,
+		data: PropTypes.shape({
+      title: PropTypes.node.isRequired,
+      pathname: PropTypes.string,
+      search: PropTypes.string,
+      isLink: PropTypes.bool,
+    }).isRequired,
 		hidden: PropTypes.bool,
-		children: PropTypes.element
+		children: PropTypes.element,
 	}
 
 	static defaultProps = {
@@ -45,7 +50,7 @@ export default class Breadcrumb extends React.Component {
 		// Remove/add crumb based on `hidden` prop
 		if ( hidden && !this.props.hidden ) {
 			this._dispatch('REMOVE_CRUMB', data)
-			
+
 		} else if ( !hidden && this.props.hidden ) {
 			this._dispatch('ADD_CRUMB', data)
 		}
