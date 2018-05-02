@@ -56,20 +56,25 @@ export default class Breadcrumbs extends React.Component {
                         {
                             crumbs.sort((a, b) => {
                                 return a.pathname.length - b.pathname.length
-                            }).map((crumb, i) => (
-                                const crumb_wrapper = (crumb.isLink === false ? span : NavLink);
-                                <span key={ crumb.id } className={ `${block}__section` }>
-                                    <crumb_wrapper
-                                        exact
-                                        className={ `${block}__crumb` }
-                                        activeClassName={ `${block}__crumb--active` }
-                                        to={{
-                                            pathname: crumb.pathname,
-                                            search: crumb.search,
-                                            state: crumb.state
-                                        }}>
-                                        { crumb.title }
-                                    </crumb_wrapper>
+                            }).map((crumb, i) => {
+                                return (<span key={ crumb.id } className={ `${block}__section` }>
+                                    { (crumb.isLink === false ? (
+                                        <span key={ crumb.id } className={ `${block}__section`}>
+                                            { crumb.title }
+                                        </span>
+                                    ) : (
+                                        <NavLink
+                                            exact
+                                            className={ `${block}__crumb` }
+                                            activeClassName={ `${block}__crumb--active` }
+                                            to={{
+                                                pathname: crumb.pathname,
+                                                search: crumb.search,
+                                                state: crumb.state
+                                            }}>
+                                            { crumb.title }
+                                        </NavLink>
+                                    )) }
 
                                     { i < crumbs.length - 1 ? (
                                         <span className={ `${block}__separator` }>
@@ -77,7 +82,8 @@ export default class Breadcrumbs extends React.Component {
                                         </span>
                                     ) : null }
                                 </span>
-                            ))
+                                )
+                            })
                         }
                     </div>
                 </Wrapper>
